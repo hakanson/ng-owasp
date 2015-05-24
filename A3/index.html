@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng='">
+    <title>A3-Cross-Site Scripting (XSS)</title>
+
+    <script>alert('Hello, world.');</script>
+    <script src="alert.js"
+            integrity="sha256-qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>A3-Cross-Site Scripting (XSS)</h1>
+    <p>XSS flaws occur whenever an application takes untrusted data and sends it to a web browser without proper validation or escaping. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.</p>
+
+    <h2>Demo</h2>
+
+    <p>This page should execute the following code twice:</p>
+    <code>
+        alert('Hello, world.');
+    </code>
+
+    <hr>
+
+    <p>The SHA-256 hash value of can be found running the following command:</p>
+    <pre>
+    $ echo -n "alert('Hello, world.');" | openssl dgst -sha256 -binary | openssl enc -base64 -A
+    qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng=
+    </pre>
+
+    <hr>
+
+    <p>Copy and Patse the code below into the JavaScript console:</p>
+    <code>
+        document.body.appendChild(document.createElement("script")).appendChild(document.createTextNode("alert('xss');"))
+    </code>
+</body>
+</html>

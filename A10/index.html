@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>A10-Unvalidated Redirects and Forwards</title>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+
+    <script src="A10.js"></script>
+</head>
+<body>
+    <h1>A10-Unvalidated Redirects and Forwards</h1>
+    <p>Web applications frequently redirect and forward users to other pages and websites, and use untrusted data to determine the destination pages. Without proper validation, attackers can redirect victims to phishing or malware sites, or use forwards to access unauthorized pages.</p>
+
+    <h2>Demo</h2>
+    <div ng-controller="LinksController as vm">
+        <hr>
+        <h3>ng-href</h3>
+        <ul>
+            <li ng-repeat="link in vm.links">
+                <a ng-href="{{link}}">{{link}}</a>
+            </li>
+        </ul>
+
+        <hr>
+        <h3>linky</h3>
+
+        <ul>
+            <li ng-repeat="link in vm.links"
+                ng-bind-html="link | linky">
+            </li>
+        </ul>
+
+        <hr>
+        <h3>redirect</h3>
+        <ng-view></ng-view>
+        <ul>
+            <li >
+                <a href="#/redirect?url=https://angularjs.org">
+                    AngularJS (https)
+                </a>
+            </li>
+            <li>
+                <a href="#/redirect?url=http://angularjs.org">
+                    AngularJS (http)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

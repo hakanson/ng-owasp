@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>A1-Injection</title>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+    <script src="A1.js"></script>
+</head>
+<body>
+    <h1>A1-Injection</h1>
+    <p>Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.</p>
+
+    <h2>Demo</h2>
+
+    <h3>binding</h3>
+    <div ng-controller="BindingController as vm">
+        <table border="1">
+            <tr>
+                <td>expression</td>
+                <td>{{ vm.untrusted }}</td>
+            </tr>
+            <tr>
+                <td>ng-bind</td>
+                <td><span ng-bind="vm.untrusted"></span></td>
+            </tr>
+            <tr>
+                <td>w/ ng-non-bindable</td>
+                <td><span ng-non-bindable>{{ vm.untrusted }}</span></td>
+            </tr>
+            <tr>
+                <td>w/ $sanitize</td>
+                <td>{{ vm.sanitized }}</td>
+            </tr>
+            <tr>
+                <td>w/ $sanitize &amp; ng-bind-html</td>
+                <td><span ng-bind-html="vm.sanitized"></span></td>
+            </tr>
+            <tr>
+                <td>w/ $sce.trustAsHtml &amp; ng-bind-html</td>
+                <td><span ng-bind-html="vm.trusted"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>$interpolate</h3>
+    <div ng-controller="InterpolateController as vm">
+        <div>Twitter Handle: <input id="twitter" type="input" ng-model="vm.twitter" size="16"/></div>
+        <div>Signature Template: <input id="template" type="input" ng-model="vm.template" size="80"/></div>
+        <div><input type="button" value="Save" ng-click="vm.save()" /></div>
+        <hr>
+        <div ng-bind-html="vm.renderTempate()"></div>
+    </div>
+</body>
+</html>

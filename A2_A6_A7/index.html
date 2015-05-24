@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-csp>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <title>A2, A6 &amp; A7</title>
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular/angular-csp.css">
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+
+    <script src="A2_A6_A7.js"></script>
+</head>
+<body>
+    <h1>A2, A6 & A7</h1>
+
+    <h3>A2-Broken Authentication and Session Management</h3>
+    <p>Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities.</p>
+
+    <h3>A6-Sensitive Data Exposure</h3>
+    <p>Many web applications do not properly protect sensitive data, such as credit cards, tax IDs, and authentication credentials. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data deserves extra protection such as encryption at rest or in transit, as well as special precautions when exchanged with the browser.
+    </p>
+
+    <h3>A7-Missing Function Level Access Control</h3>
+    <p>Most web applications verify function level access rights before making that functionality visible in the UI. However, applications need to perform the same access control checks on the server when each function is accessed. If requests are not verified, attackers will be able to forge requests in order to access functionality without proper authorization.
+    </p>
+
+    <h2>Demo</h2>
+
+    <ul>
+        <li><a href="#/login">Log In</a></li>
+        <li><a href="#/logout">Log Out</a></li>
+        <li><a href="#/contactus">Contact Us</a> (alows anonymous user)</li>
+        <li><a href="#/feature">Feature</a> (requires login)</li>
+    </ul>
+
+    <div>
+        <hr>
+        <!-- Dynamic content -->
+        <ng-view></ng-view>
+    </div>
+
+</body>
+</html>
