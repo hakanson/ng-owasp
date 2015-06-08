@@ -35,22 +35,24 @@
 		.module('app')
 		.controller('InterpolateController', InterpolateController);
 
-	function InterpolateController($interpolate, $sanitize, $sce) {
+	function InterpolateController($interpolate, $sce) {
 		var vm = this, i;
 
 		vm.twitter = "hakanson";
 		vm.template = 'Twitter: <a href="https://twitter.com/{{twitter}}">@{{twitter}}</a>';
+		vm.trusted = false;
+		vm.rendered = "";
 
-		vm.save = function () {
+		vm.update = function () {
 			i = $interpolate(vm.template);
-		};
 
-		vm.renderTempate = function() {
 			var context = { twitter : vm.twitter};
-			//return i(context);
-			return $sce.trustAsHtml(i(context));
+			vm.rendered = i(context);
+			if (vm.trusted == true) {
+				vm.rendered = $sce.trustAsHtml(vm.rendered);
+			}
 		};
 
-		vm.save();
+		vm.update();
 	}
 })();

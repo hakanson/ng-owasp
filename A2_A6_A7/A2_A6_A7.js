@@ -45,8 +45,6 @@
 					templateUrl: 'feature.html',
 					controller: 'FeatureController as vm'
 				});
-
-
 		})
 		.config(function ($httpProvider) {
 			$httpProvider.interceptors.push(function($q, $rootScope) {
@@ -86,22 +84,13 @@
 
 				$rootScope.$broadcast('Auth:Required');
 			});
+		})
+		.run(function($window, StorageService) {
+			$window.addEventListener('beforeunload', function(event) {
+				// clear user info
+				StorageService.clear();
+			});
 		});
-})();
-
-// nav.controller.js
-(function() {
-	'use strict';
-
-	angular
-		.module('app')
-		.controller('NavController', NavController);
-
-	function NavController() {
-		var vm = this;
-
-
-	}
 })();
 
 // auth.controller.js

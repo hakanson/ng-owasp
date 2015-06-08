@@ -18,29 +18,28 @@
 	angular
 		.module('app')
 		.config(function ( $compileProvider, $routeProvider ) {
-				$compileProvider.aHrefSanitizationWhitelist(whiteList);
+			$compileProvider.aHrefSanitizationWhitelist(whiteList);
 
-				$routeProvider
-					.when('/redirect', {
-						template: '<em>redirecting in 3 seconds...</em>',
-						controller: function ($scope, $location, $timeout, $window) {
-							$scope.url = $location.$$search['url'] || '';
+			$routeProvider
+				.when('/redirect', {
+					template: '<em>redirecting in 3 seconds...</em>',
+					controller: function ($scope, $location, $timeout, $window) {
+						$scope.url = $location.$$search['url'] || '';
 
-							if ($scope.url.match(whiteList)) {
-								$timeout(function () {
-									$window.location.href = $scope.url;
-								}, 3000)
-							} else {
-								$location.path('/redirectDenied');
-							}
+						if ($scope.url.match(whiteList)) {
+							$timeout(function () {
+								$window.location.href = $scope.url;
+							}, 3000)
+						} else {
+							$location.path('/redirectDenied');
 						}
-					})
-					.when('/redirectDenied', {
-						template: '<em>redirect URL not in whiteList</em>'
-					})
+					}
+				})
+				.when('/redirectDenied', {
+					template: '<em>redirect URL not in whiteList</em>'
+				})
 			}
 		);
-
 })();
 
 // links.controller.js

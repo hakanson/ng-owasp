@@ -35,6 +35,10 @@
                 <td>{{ vm.sanitized }}</td>
             </tr>
             <tr>
+                <td>w/ ng-bind-html</td>
+                <td><span ng-bind-html="vm.untrusted"></span></td>
+            </tr>
+            <tr>
                 <td>w/ $sanitize &amp; ng-bind-html</td>
                 <td><span ng-bind-html="vm.sanitized"></span></td>
             </tr>
@@ -49,9 +53,12 @@
     <div ng-controller="InterpolateController as vm">
         <div>Twitter Handle: <input id="twitter" type="input" ng-model="vm.twitter" size="16"/></div>
         <div>Signature Template: <input id="template" type="input" ng-model="vm.template" size="80"/></div>
-        <div><input type="button" value="Save" ng-click="vm.save()" /></div>
+        <div>
+            <input type="button" value="Update" ng-click="vm.update()" />
+            (<label><input type="checkbox" ng-model="vm.trusted" />trusted</label>)
+        </div>
         <hr>
-        <div ng-bind-html="vm.renderTempate()"></div>
+        <div ng-bind-html="vm.rendered"></div>
     </div>
 </body>
 </html>
