@@ -6,6 +6,7 @@
 
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.js"></script>
 
     <script src="A1.js"></script>
 </head>
@@ -59,6 +60,17 @@
         </div>
         <hr>
         <div ng-bind-html="vm.rendered"></div>
+    </div>
+
+    <h3>translate</h3>
+    <div ng-controller="TranslateController as vm">
+        <div ng-bind-html="'GREETING' | translate:vm.parameters | trust"></div>
+        <hr>
+        <div ng-bind-html="'GREETING' | translate:vm.parameters"></div>
+        <hr>
+        <div ng-bind="'GREETING' | translate:vm.parameters"></div>
+        <hr>
+        <div ng-bind-html="'GREETINGX' | translate:{name:'Kevin'}"></div>
     </div>
 </body>
 </html>

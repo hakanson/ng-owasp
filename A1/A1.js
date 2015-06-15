@@ -4,7 +4,8 @@
 
 	angular
 		.module('app', [
-			'ngSanitize'
+			'ngSanitize',
+			'pascalprecht.translate'
 		]);
 })();
 
@@ -44,9 +45,8 @@
 		vm.rendered = "";
 
 		vm.update = function () {
-			i = $interpolate(vm.template);
-
 			var context = { twitter : vm.twitter};
+			i = $interpolate(vm.template);
 			vm.rendered = i(context);
 			if (vm.trusted == true) {
 				vm.rendered = $sce.trustAsHtml(vm.rendered);
@@ -54,5 +54,52 @@
 		};
 
 		vm.update();
+	}
+})();
+
+// trust.filter.js
+(function() {
+	'use strict';
+
+	angular
+		.module('app')
+		.filter('trust', function($sce) {
+			return function(input) {
+				return $sce.trustAsHtml(input);
+			};
+		});
+})();
+
+// app.config.js
+(function() {
+	'use strict';
+
+	angular
+		.module('app')
+		.config(function ($translateProvider) {
+			$translateProvider.translations('en', {
+				GREETING: '<b>Hello</b> {{name}}',
+				GREETINGX: '<b>Hello</b> {{name | uppercase}}'
+			});
+
+			$translateProvider.preferredLanguage('en');
+
+			$translateProvider.useSanitizeValueStrategy('sanitize');
+		});
+})();
+
+// translate.controller.js
+(function() {
+	'use strict';
+
+	angular
+		.module('app')
+		.controller('TranslateController', TranslateController);
+
+	function TranslateController() {
+		var vm = this;
+
+		//vm.parameters = {name:'<i>Kevin</i>'};
+		vm.parameters = {name:'<i onmouseover="alert(\'Kevin\')">Kevin</i>'};
 	}
 })();
