@@ -78,7 +78,7 @@
 		.module('app')
 		.config(function ($translateProvider) {
 			$translateProvider.translations('en', {
-				GREETING: '<b>Hello</b> {{name}}',
+				GREETING: '<b onmouseover="alert(\'over\')">Hello</b> {{name}}',
 				GREETINGX: '<b>Hello</b> {{name | uppercase}}'
 			});
 
