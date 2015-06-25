@@ -7,7 +7,7 @@ This session will review the OWASP Top 10 with a front-end development focus on 
 * Thomson Reuters Beyond the Edge - Ann Arbor (17 September 2014)
 * AngularMN Monthly Meetup (4 March 2015)
 * Twin Cities Code Camp 18 (25 April 2015)
-* NDC Oslo (17-19 June 2015) ( [presentation][3] )
+* NDC Oslo (17-19 June 2015) ( [presentation][3], [video][4] )
 * That Conference (10-12 August 2015)
 
 ---
@@ -17,3 +17,4 @@ This session will review the OWASP Top 10 with a front-end development focus on 
 [1]: http://about.me/kevin.hakanson
 [2]: https://twitter.com/hakanson
 [3]: http://www.slideshare.net/kevinhakanson/ng-owasp-ndc
+[4]: https://vimeo.com/131757758
