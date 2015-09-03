@@ -17,6 +17,7 @@
   "dependencies": {
     "angular-sanitize": "~1.4.5",
     "angular-translate": "~2.7.2",
+    "angular-route": "~1.4.5",
     "angular": "~1.4.5"
   },
   "authors": [
