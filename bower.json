@@ -1,0 +1,24 @@
+{
+  "name": "ng-owasp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hakanson/ng-owasp",
+  "description": "ng-owasp: OWASP Top 10 for AngularJS Applications",
+  "main": "index.html",
+  "keywords": [
+    "owasp"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-sanitize": "~1.4.5",
+    "angular-translate": "~2.7.2",
+    "angular": "~1.4.5"
+  },
+  "authors": [
+  ]
+}
