@@ -84,7 +84,7 @@
 
 			$translateProvider.preferredLanguage('en');
 
-			$translateProvider.useSanitizeValueStrategy('sanitize');
+			//$translateProvider.useSanitizeValueStrategy('sanitize');
 		});
 })();
 

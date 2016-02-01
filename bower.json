@@ -15,10 +15,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular-sanitize": "~1.4.5",
+    "angular-sanitize": "~1.4.9",
     "angular-translate": "~2.7.2",
-    "angular-route": "~1.4.5",
-    "angular": "~1.4.5"
+    "angular-route": "~1.4.9",
+    "angular": "~1.4.9"
   },
   "authors": [
   ]
