@@ -9,7 +9,7 @@ This session will review the OWASP Top 10 with a front-end development focus on 
 * Twin Cities Code Camp 18 (25 April 2015)
 * NDC Oslo (17-19 June 2015) ( [presentation][3], [video][4] )
 * That Conference (10-12 August 2015) ( [presentation][5] )
-* DevFestMN 2016 (6 February 2016)
+* DevFestMN 2016 (6 February 2016) ( [presentation][6] )
 
 ---
 
@@ -20,3 +20,4 @@ This session will review the OWASP Top 10 with a front-end development focus on 
 [3]: http://www.slideshare.net/kevinhakanson/ng-owasp-ndc
 [4]: https://vimeo.com/131757758
 [5]: https://docs.google.com/presentation/d/11dCU6lJ27R5RpuMDopMvkTzzcYmNAmv4CWzv4gYRxzs/pub?start=false&loop=false&delayms=3000
+[6]: https://docs.google.com/presentation/d/1qdAq-TtaVfsZ4af-WlUzKALZv0GmsHViuk3WM_UIubs/pub?start=false&loop=false&delayms=3000
